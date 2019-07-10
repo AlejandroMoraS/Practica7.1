@@ -29,7 +29,7 @@ int pagefault(char *vaddress)
     pag_del_proceso=(long) vaddress>>12;
     // Cuenta los marcos asignados al proceso
     i=countframesassigned();
-  
+
     // Busca un marco libre en el sistema
     frame=getfreeframe();
 
@@ -64,4 +64,3 @@ int getfreeframe()
         i=-1;
     return(i);
 }
-
