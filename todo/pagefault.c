@@ -33,7 +33,7 @@ int pagefault(char *vaddress)
     // Busca un marco libre en el sistema
     frame=getfreeframe();
 
-	// Ya no hay más marcos
+	// Ya no hay más marcos 
     if(frame==-1)
     {
         return(-1); // Regresar indicando error de memoria insuficiente
