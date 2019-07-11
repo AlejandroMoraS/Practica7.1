@@ -1,20 +1,20 @@
-System Frame Table area = 0x55d28707d000
-Proccess Page Table area = 0x55d28707e000
-Frames area = 0x55d28707f000
-Base = 0x55d28708b000
+System Frame Table area = 0x56396cac6000
+Proccess Page Table area = 0x56396cac7000
+Frames area = 0x56396cac8000
+Base = 0x56396cad4000
 Primer marco 0
-Frame 0, Dirección 0x55d28707f000 0x55d28707f000 
-Frame 1, Dirección 0x55d287080000 0x55d287080000 
-Frame 2, Dirección 0x55d287081000 0x55d287081000 
-Frame 3, Dirección 0x55d287082000 0x55d287082000 
-Frame 4, Dirección 0x55d287083000 0x55d287083000 
-Frame 5, Dirección 0x55d287084000 0x55d287084000 
-Frame 6, Dirección 0x55d287085000 0x55d287085000 
-Frame 7, Dirección 0x55d287086000 0x55d287086000 
-Frame 8, Dirección 0x55d287087000 0x55d287087000 
-Frame 9, Dirección 0x55d287088000 0x55d287088000 
-Frame A, Dirección 0x55d287089000 0x55d287089000 
-Frame B, Dirección 0x55d28708a000 0x55d28708a000 
+Frame 0, Dirección 0x56396cac8000 0x56396cac8000 
+Frame 1, Dirección 0x56396cac9000 0x56396cac9000 
+Frame 2, Dirección 0x56396caca000 0x56396caca000 
+Frame 3, Dirección 0x56396cacb000 0x56396cacb000 
+Frame 4, Dirección 0x56396cacc000 0x56396cacc000 
+Frame 5, Dirección 0x56396cacd000 0x56396cacd000 
+Frame 6, Dirección 0x56396cace000 0x56396cace000 
+Frame 7, Dirección 0x56396cacf000 0x56396cacf000 
+Frame 8, Dirección 0x56396cad0000 0x56396cad0000 
+Frame 9, Dirección 0x56396cad1000 0x56396cad1000 
+Frame A, Dirección 0x56396cad2000 0x56396cad2000 
+Frame B, Dirección 0x56396cad3000 0x56396cad3000 
 ---------------------------
 Page fault handler
 Direccion que provocó el fallo=0
@@ -62,15 +62,15 @@ Page fault handler
 Direccion que provocó el fallo=2000
 Proceso=0 Página=2
 Páginas del proceso --> 0  1 
-La pagia 2 encontro un marco libre en 8
+La pagia 2 encontro un marco libre en 7
 La pagia 2 estaba en memoria secundaria
-frameFree:8
+frameFree:7
 framenumber:-1
-Proceso=0, Página 2 cargada en el marco 8
+Proceso=0, Página 2 cargada en el marco 7
 Tabla de páginas Proc -> Pag Pr Mo Fr
                     0 ->   0  1  1  0
                     0 ->   1  1  1  3
-                    0 ->   2  1  0  8
+                    0 ->   2  1  0  7
                     0 ->   3  0  0 FFFFFFFF
                     0 ->   4  0  0 FFFFFFFF
                     0 ->   5  0  0 FFFFFFFF
@@ -83,22 +83,22 @@ Page fault handler
 Direccion que provocó el fallo=3000
 Proceso=0 Página=3
 Páginas del proceso --> 0  1  2 
-La pagia 3 busca un marco
-La pagia 3 encontro un frame virtual en 12
-posPagExit:2
-(ptbr + posPagExit)->framenumber:8
-La pagia 3 encontro un marco libre en 8
+La pagia 3 busca un marco:-1
+La pagia 3 encontro un frame virtual en 14
+posPagExit:-1
+(ptbr + posPagExit)->framenumber:0
+La pagia 3 encontro un marco libre en 0
 La pagia 3 estaba en memoria secundaria
-frameFree:8
+frameFree:0
 framenumber:-1
-Proceso=0, Página 3 cargada en el marco 8
+Proceso=0, Página 3 cargada en el marco 0
 Tabla de páginas Proc -> Pag Pr Mo Fr
                     0 ->   0  1  1  0
                     0 ->   1  1  1  3
-                    0 ->   2  0  0  C
-                    0 ->   3  1  0  8
+                    0 ->   2  1  1  7
+                    0 ->   3  1  0  0
                     0 ->   4  0  0 FFFFFFFF
-                    0 ->   5  0  0 FFFFFFFF
+                    0 ->   5  0  0  C
 ---------------------------
 Page fault handler
 Página modificada de la dirección=3000
@@ -107,587 +107,267 @@ Proceso=0 Página=3
 Page fault handler
 Direccion que provocó el fallo=4000
 Proceso=0 Página=4
-Páginas del proceso --> 0  1  3 
-La pagia 4 busca un marco
-La pagia 4 encontro un frame virtual en 17
-posPagExit:1
-(ptbr + posPagExit)->framenumber:3
-La pagia 4 encontro un marco libre en 3
-La pagia 4 estaba en memoria secundaria
-frameFree:3
-framenumber:-1
-Proceso=0, Página 4 cargada en el marco 3
-Tabla de páginas Proc -> Pag Pr Mo Fr
-                    0 ->   0  1  1  0
-                    0 ->System Frame Table area = 0x55d28707d000
-Proccess Page Table area = 0x55d28707e000
-Frames area = 0x55d28707f000
-Base = 0x55d28708b000
+Páginas del proceso --> 0  1  2  3 
+La pagia 4 busca un marco:-1
+La pagia 4 encontro un frame virtual en 15
+posPagExit:-1
+(ptbr + posPagExit)->framenumber:14
+La pagia 4 no encontro un marco libre
+Proceso 0, libera los marcos --> 0  3  7  0 
+System Frame Table area = 0x56396cac6000
+Proccess Page Table area = 0x56396cac7000
+Frames area = 0x56396cac8000
+Base = 0x56396cad4000
 Primer marco 0
-Frame 0, Dirección 0x55d28707f000 0x55d28707f000 
-Frame 1, Dirección 0x55d287080000 0x55d287080000 
-Frame 2, Dirección 0x55d287081000 0x55d287081000 
-Frame 3, Dirección 0x55d287082000 0x55d287082000 
-Frame 4, Dirección 0x55d287083000 0x55d287083000 
-Frame 5, Dirección 0x55d287084000 0x55d287084000 
-Frame 6, Dirección 0x55d287085000 0x55d287085000 
-Frame 7, Dirección 0x55d287086000 0x55d287086000 
-Frame 8, Dirección 0x55d287087000 0x55d287087000 
-Frame 9, Dirección 0x55d287088000 0x55d287088000 
-Frame A, Dirección 0x55d287089000 0x55d287089000 
-Frame B, Dirección 0x55d28708a000 0x55d28708a000 
+Frame 0, Dirección 0x56396cac8000 0x56396cac8000 
+Frame 1, Dirección 0x56396cac9000 0x56396cac9000 
+Frame 2, Dirección 0x56396caca000 0x56396caca000 
+Frame 3, Dirección 0x56396cacb000 0x56396cacb000 
+Frame 4, Dirección 0x56396cacc000 0x56396cacc000 
+Frame 5, Dirección 0x56396cacd000 0x56396cacd000 
+Frame 6, Dirección 0x56396cace000 0x56396cace000 
+Frame 7, Dirección 0x56396cacf000 0x56396cacf000 
+Frame 8, Dirección 0x56396cad0000 0x56396cad0000 
+Frame 9, Dirección 0x56396cad1000 0x56396cad1000 
+Frame A, Dirección 0x56396cad2000 0x56396cad2000 
+Frame B, Dirección 0x56396cad3000 0x56396cad3000 
 ---------------------------
 Page fault handler
 Direccion que provocó el fallo=0
-Proceso=1 Página=0
+Proceso=3 Página=0
 Páginas del proceso -->
-La pagia 0 encontro un marco libre en 1
+La pagia 0 encontro un marco libre en 4
 La pagia 0 estaba en memoria secundaria
-frameFree:1
+frameFree:4
 framenumber:-1
-Proceso=1, Página 0 cargada en el marco 1
+Proceso=3, Página 0 cargada en el marco 4
 Tabla de páginas Proc -> Pag Pr Mo Fr
-                    1 ->   0  1  0  1
-                    1 ->   1  0  0 FFFFFFFF
-                    1 ->   2  0  0 FFFFFFFF
-                    1 ->   3  0  0 FFFFFFFF
-                    1 ->   4  0  0 FFFFFFFF
-                    1 ->   5  0  0 FFFFFFFF
+                    3 ->   0  1  0  4
+                    3 ->   1  0  0 FFFFFFFF
+                    3 ->   2  0  0 FFFFFFFF
+                    3 ->   3  0  0 FFFFFFFF
+                    3 ->   4  0  0 FFFFFFFF
+                    3 ->   5  0  0 FFFFFFFF
 ---------------------------
 Page fault handler
 Página modificada de la dirección=0
-Proceso=1 Página=0
+Proceso=3 Página=0
 ---------------------------
 Page fault handler
 Direccion que provocó el fallo=1000
-Proceso=1 Página=1
+Proceso=3 Página=1
 Páginas del proceso --> 0 
-La pagia 1 encontro un marco libre en 5
+La pagia 1 encontro un marco libre en 10
 La pagia 1 estaba en memoria secundaria
-frameFree:5
+frameFree:10
 framenumber:-1
-Proceso=1, Página 1 cargada en el marco 5
+Proceso=3, Página 1 cargada en el marco A
 Tabla de páginas Proc -> Pag Pr Mo Fr
-                    1 ->   0  1  1  1
-                    1 ->   1  1  0  5
-                    1 ->   2  0  0 FFFFFFFF
-                    1 ->   3  0  0 FFFFFFFF
-                    1 ->   4  0  0 FFFFFFFF
-                    1 ->   5  0  0 FFFFFFFF
+                    3 ->   0  1  1  4
+                    3 ->   1  1  0  A
+                    3 ->   2  0  0 FFFFFFFF
+                    3 ->   3  0  0 FFFFFFFF
+                    3 ->   4  0  0 FFFFFFFF
+                    3 ->   5  0  0 FFFFFFFF
 ---------------------------
 Page fault handler
 Página modificada de la dirección=1000
-Proceso=1 Página=1
+Proceso=3 Página=1
 ---------------------------
 Page fault handler
 Direccion que provocó el fallo=2000
-Proceso=1 Página=2
+Proceso=3 Página=2
 Páginas del proceso --> 0  1 
-La pagia 2 encontro un marco libre en 9
+La pagia 2 encontro un marco libre en 11
 La pagia 2 estaba en memoria secundaria
-frameFree:9
+frameFree:11
 framenumber:-1
-Proceso=1, Página 2 cargada en el marco 9
+Proceso=3, Página 2 cargada en el marco B
 Tabla de páginas Proc -> Pag Pr Mo Fr
-                    1 ->   0  1  1  1
-                    1 ->   1  1  1  5
-                    1 ->   2  1  0  9
-                    1 ->   3  0  0 FFFFFFFF
-                    1 ->   4  0  0 FFFFFFFF
-                    1 ->   5  0  0 FFFFFFFF
+                    3 ->   0  1  1  4
+                    3 ->   1  1  1  A
+                    3 ->   2  1  0  B
+                    3 ->   3  0  0 FFFFFFFF
+                    3 ->   4  0  0 FFFFFFFF
+                    3 ->   5  0  0 FFFFFFFF
 ---------------------------
 Page fault handler
 Página modificada de la dirección=2000
-Proceso=1 Página=2
+Proceso=3 Página=2
 ---------------------------
 Page fault handler
 Direccion que provocó el fallo=3000
-Proceso=1 Página=3
+Proceso=3 Página=3
 Páginas del proceso --> 0  1  2 
-La pagia 3 busca un marco
+La pagia 3 busca un marco:2
 La pagia 3 encontro un frame virtual en 14
 posPagExit:2
-(ptbr + posPagExit)->framenumber:9
-La pagia 3 encontro un marco libre en 9
+(ptbr + posPagExit)->framenumber:11
+La pagia 3 encontro un marco libre en 0
 La pagia 3 estaba en memoria secundaria
-frameFree:9
+frameFree:0
 framenumber:-1
-Proceso=1, Página 3 cargada en el marco 9
+Proceso=3, Página 3 cargada en el marco 0
 Tabla de páginas Proc -> Pag Pr Mo Fr
-                    1 ->   0  1  1  1
-                    1 ->   1  1  1  5
-                    1 ->   2  0  0  E
-                    1 ->   3  1  0  9
-                    1 ->   4  0  0 FFFFFFFF
-                    1 ->   5  0  0 FFFFFFFF
+                    3 ->   0  1  1  4
+                    3 ->   1  1  1  A
+                    3 ->   2  0  0  E
+                    3 ->   3  1  0  0
+                    3 ->   4  0  0 FFFFFFFF
+                    3 ->   5  0  0 FFFFFFFF
 ---------------------------
 Page fault handler
 Página modificada de la dirección=3000
-Proceso=1 Página=3
+Proceso=3 Página=3
 ---------------------------
 Page fault handler
 Direccion que provocó el fallo=4000
-Proceso=1 Página=4
+Proceso=3 Página=4
 Páginas del proceso --> 0  1  3 
-La pagia 4 busca un marco
+La pagia 4 busca un marco:3
 La pagia 4 encontro un frame virtual en 16
-posPagExit:1
-(ptbr + posPagExit)->framenumber:5
-La pagia 4 encontro un marco libre en 5
+posPagExit:3
+(ptbr + posPagExit)->framenumber:0
+La pagia 4 encontro un marco libre en 0
 La pagia 4 estaba en memoria secundaria
-frameFree:5
+frameFree:0
 framenumber:-1
-Proceso=1, Página 4 cargada en el marco 5
+Proceso=3, Página 4 cargada en el marco 0
 Tabla de páginas Proc -> Pag Pr Mo Fr
-                    1 ->   0  1  1  1
-                    1 ->System Frame Table area = 0x55d28707d000
-Proccess Page Table area = 0x55d28707e000
-Frames area = 0x55d28707f000
-Base = 0x55d28708b000
-Primer marco 0
-Frame 0, Dirección 0x55d28707f000 0x55d28707f000 
-Frame 1, Dirección 0x55d287080000 0x55d287080000 
-Frame 2, Dirección 0x55d287081000 0x55d287081000 
-Frame 3, Dirección 0x55d287082000 0x55d287082000 
-Frame 4, Dirección 0x55d287083000 0x55d287083000 
-Frame 5, Dirección 0x55d287084000 0x55d287084000 
-Frame 6, Dirección 0x55d287085000 0x55d287085000 
-Frame 7, Dirección 0x55d287086000 0x55d287086000 
-Frame 8, Dirección 0x55d287087000 0x55d287087000 
-Frame 9, Dirección 0x55d287088000 0x55d287088000 
-Frame A, Dirección 0x55d287089000 0x55d287089000 
-Frame B, Dirección 0x55d28708a000 0x55d28708a000 
----------------------------
-Page fault handler
-Direccion que provocó el fallo=0
-Proceso=2 Página=0
-Páginas del proceso -->
-La pagia 0 encontro un marco libre en 2
-La pagia 0 estaba en memoria secundaria
-frameFree:2
-framenumber:-1
-Proceso=2, Página 0 cargada en el marco 2
-Tabla de páginas Proc -> Pag Pr Mo Fr
-                    2 ->   0  1  0  2
-                    2 ->   1  0  0 FFFFFFFF
-                    2 ->   2  0  0 FFFFFFFF
-                    2 ->   3  0  0 FFFFFFFF
-                    2 ->   4  0  0 FFFFFFFF
-                    2 ->   5  0  0 FFFFFFFF
----------------------------
-Page fault handler
-Página modificada de la dirección=0
-Proceso=2 Página=0
----------------------------
-Page fault handler
-Direccion que provocó el fallo=1000
-Proceso=2 Página=1
-Páginas del proceso --> 0 
-La pagia 1 encontro un marco libre en 6
-La pagia 1 estaba en memoria secundaria
-frameFree:6
-framenumber:-1
-Proceso=2, Página 1 cargada en el marco 6
-Tabla de páginas Proc -> Pag Pr Mo Fr
-                    2 ->   0  1  1  2
-                    2 ->   1  1  0  6
-                    2 ->   2  0  0 FFFFFFFF
-                    2 ->   3  0  0 FFFFFFFF
-                    2 ->   4  0  0 FFFFFFFF
-                    2 ->   5  0  0 FFFFFFFF
----------------------------
-Page fault handler
-Página modificada de la dirección=1000
-Proceso=2 Página=1
----------------------------
-Page fault handler
-Direccion que provocó el fallo=2000
-Proceso=2 Página=2
-Páginas del proceso --> 0  1 
-La pagia 2 encontro un marco libre en 7
-La pagia 2 estaba en memoria secundaria
-frameFree:7
-framenumber:-1
-Proceso=2, Página 2 cargada en el marco 7
-Tabla de páginas Proc -> Pag Pr Mo Fr
-                    2 ->   0  1  1  2
-                    2 ->   1  1  1  6
-                    2 ->   2  1  0  7
-                    2 ->   3  0  0 FFFFFFFF
-                    2 ->   4  0  0 FFFFFFFF
-                    2 ->   5  0  0 FFFFFFFF
----------------------------
-Page fault handler
-Página modificada de la dirección=2000
-Proceso=2 Página=2
----------------------------
-Page fault handler
-Direccion que provocó el fallo=3000
-Proceso=2 Página=3
-Páginas del proceso --> 0  1  2 
-La pagia 3 busca un marco
-La pagia 3 encontro un frame virtual en 13
-posPagExit:2
-(ptbr + posPagExit)->framenumber:7
-La pagia 3 encontro un marco libre en 7
-La pagia 3 estaba en memoria secundaria
-frameFree:7
-framenumber:-1
-Proceso=2, Página 3 cargada en el marco 7
-Tabla de páginas Proc -> Pag Pr Mo Fr
-                    2 ->   0  1  1  2
-                    2 ->   1  1  1  6
-                    2 ->   2  0  0  D
-                    2 ->   3  1  0  7
-                    2 ->   4  0  0 FFFFFFFF
-                    2 ->   5  0  0 FFFFFFFF
----------------------------
-Page fault handler
-Página modificada de la dirección=3000
-Proceso=2 Página=3
----------------------------
-Page fault handler
-Direccion que provocó el fallo=4000
-Proceso=2 Página=4
-Páginas del proceso --> 0  1  3 
-La pagia 4 busca un marco
-La pagia 4 encontro un frame virtual en 18
-posPagExit:1
-(ptbr + posPagExit)->framenumber:6
-La pagia 4 encontro un marco libre en 6
-La pagia 4 estaba en memoria secundaria
-frameFree:6
-framenumber:-1
-Proceso=2, Página 4 cargada en el marco 6
-Tabla de páginas Proc -> Pag Pr Mo Fr
-                    2 ->   0  1  1  2
-                    2 ->   1  0  0 11
-                    0 ->   2  0  0  C
-                    0 ->   3  1  1  8
-                    0 ->   4  1  0  3
-                    0 ->   5  0  0 FFFFFFFF
+                    3 ->   0  1  1  4
+                    3 ->   1  1  1  A
+                    3 ->   2  0  0  E
+                    3 ->   3  0  0 10
+                    3 ->   4  1  0  0
+                    3 ->   5  0  0 FFFFFFFF
 ---------------------------
 Page fault handler
 Página modificada de la dirección=4000
-Proceso=0 Página=4
+Proceso=3 Página=4
 ---------------------------
 Page fault handler
 Direccion que provocó el fallo=5000
-Proceso=0 Página=5
-Páginas del proceso --> 0  3  4 
-La pagia 5 busca un marco
-La pagia 5 encontro un frame virtual en 21
+Proceso=3 Página=5
+Páginas del proceso --> 0  1  4 
+La pagia 5 busca un marco:4
+La pagia 5 encontro un frame virtual en 17
 posPagExit:4
-(ptbr + posPagExit)->framenumber:3
-La pagia 5 encontro un marco libre en 3
+(ptbr + posPagExit)->framenumber:0
+La pagia 5 encontro un marco libre en 0
 La pagia 5 estaba en memoria secundaria
-frameFree:3
+frameFree:0
 framenumber:-1
-Proceso=0, Página 5 cargada en el marco 3
+Proceso=3, Página 5 cargada en el marco 0
 Tabla de páginas Proc -> Pag Pr Mo Fr
-                    0 ->   0  1  1  0
-                    0 ->   1  0  0 11
-                    0 ->   2  0  0  C
-                    0 ->   3  1  1  8
-                    0 ->   4  0  0 15
-                    0 ->   5  1  0  3
+                    3 ->   0  1  1  4
+                    3 ->   1  1  1  A
+                    3 ->   2  0  0  E
+                    3 ->   3  0  0 10
+                    3 ->   4  0  0 11
+                    3 ->   5  1  0  0
 ---------------------------
 Page fault handler
 Página modificada de la dirección=5000
-Proceso=0 Página=5
-Escritura del proceso 0 en la pagina 0
----------------------------
-Page fault handler
-Direccion que provocó el fallo=1000
-Proceso=0 Página=1
-La pagia 1 esta en un marcho
-Páginas del proceso --> 0  3  5 
-La pagia 1 busca un marco
-La pagia 1 encontro un frame virtual en 16
-posPagExit:3
-(ptbr + posPagExit)->framenumber:8
-La pagia 1 encontro un marco libre en 8
-Proceso=0, Página 1 cargada en el marco 8
-Tabla de páginas Proc -> Pag Pr Mo Fr
-                    0 ->   0  1  1  0
-                    0 ->   1  1  0  8
-                    0 ->   2  0  0  C
-                    0 ->   3  0  0 10
-                    0 ->   4  0  0 15
-                    0 ->   5  1  1  3
-Escritura del proceso 0 en la pagina 3
+Proceso=3 Página=5
+Escritura del proceso 3 en la pagina 0
+Escritura del proceso 3 en la pagina 1
 ---------------------------
 Page fault handler
 Direccion que provocó el fallo=2000
-Proceso=0 Página=2
+Proceso=3 Página=2
 La pagia 2 esta en un marcho
 Páginas del proceso --> 0  1  5 
-La pagia 2 busca un marco
-La pagia 2 encontro un frame virtual en 12
-posPagExit:-1
+La pagia 2 busca un marco:5
+La pagia 2 encontro un frame virtual en 14
+posPagExit:5
 (ptbr + posPagExit)->framenumber:0
 La pagia 2 encontro un marco libre en 0
-Proceso=0, Página 2 cargada en el marco 0
+Proceso=3, Página 2 cargada en el marco 0
 Tabla de páginas Proc -> Pag Pr Mo Fr
-                    0 ->   0  1  1  0
-                    0 ->   1  1  0  8
-                    0 ->   2  1  0  0
-                    0 ->   3  0  0 10
-                    0 ->   4  0  0 15
-                    0 ->   5  1  1  3
-Escritura del proceso 0 en la pagina 0
+                    3 ->   0  1  1  4
+                    3 ->   1  1  1  A
+                    3 ->   2  1  0  0
+                    3 ->   3  0  0 10
+                    3 ->   4  0  0 11
+                    3 ->   5  0  0  E
+Escritura del proceso 3 en la pagina 5
 ---------------------------
 Page fault handler
 Direccion que provocó el fallo=3000
-Proceso=0 Página=3
+Proceso=3 Página=3
 La pagia 3 esta en un marcho
 Páginas del proceso --> 0  1  2 
-La pagia 3 busca un marco
+La pagia 3 busca un marco:2
 La pagia 3 encontro un frame virtual en 16
-posPagExit:-1
-(ptbr + posPagExit)->framenumber:12
-La pagia 3 no encontro un marco libre
-Proceso 0, libera los marcos --> 0  8  0 
-   1  0  0 10
-                    1 ->   2  0  0  E
-                    1 ->   3  1  1  9
-                    1 ->   4  1  0  5
-                    1 ->   5  0  0 FFFFFFFF
----------------------------
-Page fault handler
-Página modificada de la dirección=4000
-Proceso=1 Página=4
----------------------------
-Page fault handler
-Direccion que provocó el fallo=5000
-Proceso=1 Página=5
-Páginas del proceso --> 0  3  4 
-La pagia 5 busca un marco
-La pagia 5 encontro un frame virtual en 20
-posPagExit:4
-(ptbr + posPagExit)->framenumber:5
-La pagia 5 encontro un marco libre en 5
-La pagia 5 estaba en memoria secundaria
-frameFree:5
-framenumber:-1
-Proceso=1, Página 5 cargada en el marco 5
-Tabla de páginas Proc -> Pag Pr Mo Fr
-                    1 ->   0  1  1  1
-                    1 ->   1  0  0 10
-                    1 ->   2  0  0  E
-                    1 ->   3  1  1  9
-                    1 ->   4  0  0 14
-                    1 ->   5  1  0  5
----------------------------
-Page fault handler
-Página modificada de la dirección=5000
-Proceso=1 Página=5
-Escritura del proceso 1 en la pagina 0
----------------------------
-Page fault handler
-Direccion que provocó el fallo=1000
-Proceso=1 Página=1
-La pagia 1 esta en un marcho
-Páginas del proceso --> 0  3  5 
-La pagia 1 busca un marco
-La pagia 1 encontro un frame virtual en 17
-posPagExit:3
-(ptbr + posPagExit)->framenumber:9
-La pagia 1 encontro un marco libre en 9
-Proceso=1, Página 1 cargada en el marco 9
-Tabla de páginas Proc -> Pag Pr Mo Fr
-                    1 ->   0  1  1  1
-                    1 ->   1  1  0  9
-                    1 ->   2  0  0  E
-                    1 ->   3  0  0 11
-                    1 ->   4  0  0 14
-                    1 ->   5  1  1  5
-Escritura del proceso 1 en la pagina 3
----------------------------
-Page fault handler
-Direccion que provocó el fallo=2000
-Proceso=1 Página=2
-La pagia 2 esta en un marcho
-Páginas del proceso --> 0  1  5 
-La pagia 2 busca un marco
-La pagia 2 encontro un frame virtual en 14
-posPagExit:-1
-(ptbr + posPagExit)->framenumber:3
-La pagia 2 encontro un marco libre en 3
-Proceso=1, Página 2 cargada en el marco 3
-Tabla de páginas Proc -> Pag Pr Mo Fr
-                    1 ->   0  1  1  1
-                    1 ->   1  1  0  9
-                    1 ->   2  1  0  3
-                    1 ->   3  0  0 11
-                    1 ->   4  0  0 14
-                    1 ->   5  0  0  D
-Escritura del proceso 0 en la pagina 5
----------------------------
-Page fault handler
-Direccion que provocó el fallo=3000
-Proceso=1 Página=3
-La pagia 3 esta en un marcho
-Páginas del proceso --> 0  1  2 
-La pagia 3 busca un marco
-La pagia 3 encontro un frame virtual en 12
-posPagExit:-1
-(ptbr + posPagExit)->framenumber:14
+posPagExit:2
+(ptbr + posPagExit)->framenumber:0
 La pagia 3 encontro un marco libre en 0
-Proceso=1, Página 3 cargada en el marco 0
+Proceso=3, Página 3 cargada en el marco 0
 Tabla de páginas Proc -> Pag Pr Mo Fr
-                    1 ->   0  1  1  1
-                    1 ->   1  1  0  9
-                    1 ->   2  1  0  3
-                    1 ->   3  1  0  0
-                    1 ->   4  0  0 14
-                    1 ->   5  0  0  D
-Escritura del proceso 0 en la pagina 0
+                    3 ->   0  1  1  4
+                    3 ->   1  1  1  A
+                    3 ->   2  0  0 10
+                    3 ->   3  1  0  0
+                    3 ->   4  0  0 11
+                    3 ->   5  0  0  E
+Escritura del proceso 3 en la pagina 5
 ---------------------------
 Page fault handler
 Direccion que provocó el fallo=4000
-Proceso=1 Página=4
+Proceso=3 Página=4
 La pagia 4 esta en un marcho
-Páginas del proceso --> 0  1  2  3 
-La pagia 4 busca un marco
-La pagia 4 encontro un frame virtual en 13
-posPagExit:-1
-(ptbr + posPagExit)->framenumber:12
-La pagia 4 no encontro un marco libre
-Proceso 1, libera los marcos --> 1  9  3  0 
-   1  0  0 12
-                    2 ->   2  0  0  D
-                    2 ->   3  1  1  7
-                    2 ->   4  1  0  6
-                    2 ->   5  0  0 FFFFFFFF
----------------------------
-Page fault handler
-Página modificada de la dirección=4000
-Proceso=2 Página=4
+Páginas del proceso --> 0  1  3 
+La pagia 4 busca un marco:3
+La pagia 4 encontro un frame virtual en 17
+posPagExit:3
+(ptbr + posPagExit)->framenumber:0
+La pagia 4 encontro un marco libre en 0
+Proceso=3, Página 4 cargada en el marco 0
+Tabla de páginas Proc -> Pag Pr Mo Fr
+                    3 ->   0  1  1  4
+                    3 ->   1  1  1  A
+                    3 ->   2  0  0 10
+                    3 ->   3  0  0 11
+                    3 ->   4  1  0  0
+                    3 ->   5  0  0  E
+Escritura del proceso 3 en la pagina 5
 ---------------------------
 Page fault handler
 Direccion que provocó el fallo=5000
-Proceso=2 Página=5
-Páginas del proceso --> 0  3  4 
-La pagia 5 busca un marco
-La pagia 5 encontro un frame virtual en 22
+Proceso=3 Página=5
+La pagia 5 esta en un marcho
+Páginas del proceso --> 0  1  4 
+La pagia 5 busca un marco:4
+La pagia 5 encontro un frame virtual en 14
 posPagExit:4
-(ptbr + posPagExit)->framenumber:6
-La pagia 5 encontro un marco libre en 6
-La pagia 5 estaba en memoria secundaria
-frameFree:6
-framenumber:-1
-Proceso=2, Página 5 cargada en el marco 6
+(ptbr + posPagExit)->framenumber:0
+La pagia 5 encontro un marco libre en 0
+Proceso=3, Página 5 cargada en el marco 0
 Tabla de páginas Proc -> Pag Pr Mo Fr
-                    2 ->   0  1  1  2
-                    2 ->   1  0  0 12
-                    2 ->   2  0  0  D
-                    2 ->   3  1  1  7
-                    2 ->   4  0  0 16
-                    2 ->   5  1  0  6
----------------------------
-Page fault handler
-Página modificada de la dirección=5000
-Proceso=2 Página=5
-Escritura del proceso 2 en la pagina 0
----------------------------
-Page fault handler
-Direccion que provocó el fallo=1000
-Proceso=2 Página=1
-La pagia 1 esta en un marcho
-Páginas del proceso --> 0  3  5 
-La pagia 1 busca un marco
-La pagia 1 encontro un frame virtual en 18
-posPagExit:3
-(ptbr + posPagExit)->framenumber:7
-La pagia 1 encontro un marco libre en 7
-Proceso=2, Página 1 cargada en el marco 7
-Tabla de páginas Proc -> Pag Pr Mo Fr
-                    2 ->   0  1  1  2
-                    2 ->   1  1  0  7
-                    2 ->   2  0  0  D
-                    2 ->   3  0  0 12
-                    2 ->   4  0  0 16
-                    2 ->   5  1  1  6
-Escritura del proceso 2 en la pagina 3
----------------------------
-Page fault handler
-Direccion que provocó el fallo=2000
-Proceso=2 Página=2
-La pagia 2 esta en un marcho
-Páginas del proceso --> 0  1  5 
-La pagia 2 busca un marco
-La pagia 2 encontro un frame virtual en 13
-posPagExit:-1
-(ptbr + posPagExit)->framenumber:5
-La pagia 2 encontro un marco libre en 5
-Proceso=2, Página 2 cargada en el marco 5
-Tabla de páginas Proc -> Pag Pr Mo Fr
-                    2 ->   0  1  1  2
-                    2 ->   1  1  0  7
-                    2 ->   2  1  0  5
-                    2 ->   3  0  0 12
-                    2 ->   4  0  0 16
-                    2 ->   5  1  1  6
-Escritura del proceso 1 en la pagina 5
----------------------------
-Page fault handler
-Direccion que provocó el fallo=3000
-Proceso=2 Página=3
-La pagia 3 esta en un marcho
-Páginas del proceso --> 0  1  2  5 
-La pagia 3 busca un marco
-La pagia 3 encontro un frame virtual en 14
-posPagExit:-1
-(ptbr + posPagExit)->framenumber:13
-La pagia 3 encontro un marco libre en 8
-Proceso=2, Página 3 cargada en el marco 8
-Tabla de páginas Proc -> Pag Pr Mo Fr
-                    2 ->   0  1  1  2
-                    2 ->   1  1  0  7
-                    2 ->   2  1  0  5
-                    2 ->   3  1  0  8
-                    2 ->   4  0  0 16
-                    2 ->   5  1  1  6
-Escritura del proceso 0 en la pagina 3
----------------------------
-Page fault handler
-Direccion que provocó el fallo=4000
-Proceso=2 Página=4
-La pagia 4 esta en un marcho
-Páginas del proceso --> 0  1  2  3  5 
-La pagia 4 busca un marco
-La pagia 4 encontro un frame virtual en 12
-posPagExit:-1
-(ptbr + posPagExit)->framenumber:14
-La pagia 4 encontro un marco libre en 0
-Proceso=2, Página 4 cargada en el marco 0
-Tabla de páginas Proc -> Pag Pr Mo Fr
-                    2 ->   0  1  1  2
-                    2 ->   1  1  0  7
-                    2 ->   2  1  0  5
-                    2 ->   3  1  0  8
-                    2 ->   4  1  0  0
-                    2 ->   5  1  1  6
-Escritura del proceso 0 en la pagina 0
-Escritura del proceso 2 en la pagina 5
-Proceso 2, libera los marcos --> 2  7  5  8  0  6 
-Termina proceso 2, Total de fallos de página = 10
-System Frame Table area = 0x55d28707d000
-Proccess Page Table area = 0x55d28707e000
-Frames area = 0x55d28707f000
-Base = 0x55d28708b000
+                    3 ->   0  1  1  4
+                    3 ->   1  1  1  A
+                    3 ->   2  0  0 10
+                    3 ->   3  0  0 11
+                    3 ->   4  0  0  E
+                    3 ->   5  1  0  0
+Escritura del proceso 3 en la pagina 5
+Proceso 3, libera los marcos --> 4  A  0 
+Termina proceso 3, Total de fallos de página = 10
+System Frame Table area = 0x56396cac6000
+Proccess Page Table area = 0x56396cac7000
+Frames area = 0x56396cac8000
+Base = 0x56396cad4000
 Primer marco 0
-Frame 0, Dirección 0x55d28707f000 0x55d28707f000 
-Frame 1, Dirección 0x55d287080000 0x55d287080000 
-Frame 2, Dirección 0x55d287081000 0x55d287081000 
-Frame 3, Dirección 0x55d287082000 0x55d287082000 
-Frame 4, Dirección 0x55d287083000 0x55d287083000 
-Frame 5, Dirección 0x55d287084000 0x55d287084000 
-Frame 6, Dirección 0x55d287085000 0x55d287085000 
-Frame 7, Dirección 0x55d287086000 0x55d287086000 
-Frame 8, Dirección 0x55d287087000 0x55d287087000 
-Frame 9, Dirección 0x55d287088000 0x55d287088000 
-Frame A, Dirección 0x55d287089000 0x55d287089000 
-Frame B, Dirección 0x55d28708a000 0x55d28708a000 
-Tiempo total de ejecución 4.722360
+Frame 0, Dirección 0x56396cac8000 0x56396cac8000 
+Frame 1, Dirección 0x56396cac9000 0x56396cac9000 
+Frame 2, Dirección 0x56396caca000 0x56396caca000 
+Frame 3, Dirección 0x56396cacb000 0x56396cacb000 
+Frame 4, Dirección 0x56396cacc000 0x56396cacc000 
+Frame 5, Dirección 0x56396cacd000 0x56396cacd000 
+Frame 6, Dirección 0x56396cace000 0x56396cace000 
+Frame 7, Dirección 0x56396cacf000 0x56396cacf000 
+Frame 8, Dirección 0x56396cad0000 0x56396cad0000 
+Frame 9, Dirección 0x56396cad1000 0x56396cad1000 
+Frame A, Dirección 0x56396cad2000 0x56396cad2000 
+Frame B, Dirección 0x56396cad3000 0x56396cad3000 
+Tiempo total de ejecución 4.942073

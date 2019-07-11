@@ -60,8 +60,9 @@ int pagefault(char *vaddress)
     if(i>=RESIDENTSETSIZE)
     {
 		// Buscar una página a expulsar
-    printf("La pagia %d busca un marco\n",pag_del_proceso );
+    
       posPagExit = getfifo();
+printf("La pagia %d busca un marco:%d\n",pag_del_proceso ,posPagExit);
       (ptbr + posPagExit)->presente = 0;
         if((ptbr + posPagExit)-> modificado)// Si la página ya fue modificada, grábala en disco
         {
@@ -83,9 +84,12 @@ int pagefault(char *vaddress)
         // Copia el frame a memoria secundaria, actualiza la tabla de páginas y libera el marco de la memoria principal
         printf("posPagExit:%d\n", posPagExit);
         printf("(ptbr + posPagExit)->framenumber:%d\n", (ptbr + posPagExit)->framenumber);
-        copyframe((ptbr + posPagExit)->framenumber, posFramVM);
-	      systemframetable[(ptbr + posPagExit)->framenumber].assigned = 0;
-        (ptbr + posPagExit)->framenumber = posFramVM;
+
+        int x = (ptbr + posPagExit)->framenumber;
+	(ptbr + posPagExit)->framenumber = posFramVM;
+        copyframe(x, posFramVM);
+	systemframetable[posFramVM].assigned = 1;
+	systemframetable[x].assigned = 0;
 
     }
 
@@ -104,9 +108,9 @@ int pagefault(char *vaddress)
         printf("La pagia %d estaba en memoria secundaria\n",pag_del_proceso );
         printf("frameFree:%d\n", frameFree);
         printf("framenumber:%d\n", (ptbr +pag_del_proceso)->framenumber);
-          writeblock(buffer, frameFree);
-		      (ptbr +pag_del_proceso)->framenumber = frameFree;
-		      loadframe(frameFree);
+        writeblock(buffer, frameFree);
+        (ptbr +pag_del_proceso)->framenumber = frameFree;
+	loadframe(frameFree);
     }
 
 	// Poner el bit de presente en 1 en la tabla de páginas y el frame
@@ -118,31 +122,22 @@ int pagefault(char *vaddress)
 }
 
 
-int getfifo() {/*
+int getfifo() {
 	unsigned long longestTime = ptbr[0].tlastaccess;
 	int i=0;
-  int posPagExit=0;
-	for(i=1;i<ptlr;++i) {
-		if( ptbr[i].tlastaccess > longestTime && ptbr[i].presente) {
+  	int posPagExit=-1;
+	for(i=0;i<ptlr;++i) {
+		if( ptbr[i].tlastaccess < longestTime && ptbr[i].presente) {
 			longestTime = ptbr[i].tlastaccess;
 			posPagExit = i;
-		}*/
+		}
+	}
 
 
-	//return posPagExit};
-  unsigned long menor = ptbr[0].tlastaccess;
-int val = -1;
-
-for(int i=0;i<ptlr;++i) {
-  if(ptbr[i].presente)
-  if(menor < ptbr[i].tlastaccess) {
-    menor = ptbr[i].tlastaccess;
-    val = i;
-  }
+	return posPagExit;
 }
 
-return val;
-}
+
 
 int searchvirtualframe() {
 	int i;
